@@ -1,7 +1,7 @@
 # spring-cloud
 
 To Run jar file use command
-java -jar mobile-app-ws-0.0.1-SNAPSHOT.jar
+1. **java -jar mobile-app-ws-0.0.1-SNAPSHOT.jar**
 
 Maven commands
 =============
