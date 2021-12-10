@@ -12,7 +12,7 @@
 	<artifactId>PhotoAppAccountManagementService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PhotoAppAccountManagementService</name>
-	<description>Photo App Eureka Discovery Client</description>
+	<description>Photo App Eureka Discovery Client </description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.0</spring-cloud.version>
