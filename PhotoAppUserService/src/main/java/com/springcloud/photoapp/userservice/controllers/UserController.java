@@ -25,7 +25,7 @@ public class UserController {
 
 	@GetMapping("/status/check")
 	public String greet() {
-		return "User Service is Working..." + env.getProperty("local.server.port");
+		return "User Service is Working..." + env.getProperty("local.server.port") +" with token==>"+env.getProperty("token.secret");
 	}
 
 	@PostMapping("/createUser")

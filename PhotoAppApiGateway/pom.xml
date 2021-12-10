@@ -64,6 +64,11 @@
 			<artifactId>spring-cloud-starter-bootstrap</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bus-amqp -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+		</dependency>
 
 	</dependencies>
 	<dependencyManagement>
