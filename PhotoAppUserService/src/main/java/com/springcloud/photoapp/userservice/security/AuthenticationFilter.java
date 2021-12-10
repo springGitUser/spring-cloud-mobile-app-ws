@@ -57,7 +57,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 		String userName = ((User) authResult.getPrincipal()).getUsername();
 		UserRequestDTO userReqDTO = userService.getUserDetailsByUsername(userName);
-
+		System.out.println("Token Expirty Time User MicroService==>" + env.getProperty("token.expiry.time"));
 		String token = Jwts.builder().setSubject(userReqDTO.getUserId())
 				.setExpiration(
 						new Date(System.currentTimeMillis() + Long.parseLong(env.getProperty("token.expiry.time"))))

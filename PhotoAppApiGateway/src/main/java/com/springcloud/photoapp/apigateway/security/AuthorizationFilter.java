@@ -46,7 +46,7 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
 	private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
 		String authHeader = request.getHeader("Authorization");
 		String token = authHeader.replace("Bearer", "");
-		System.out.println("Token from header==>" + token);
+		System.out.println("Token Expirty Time Api GAteway MicroService==>" + env.getProperty("token.expiry.time"));
 		String userId = Jwts.parser().setSigningKey(env.getProperty("token.secret")).parseClaimsJws(token).getBody()
 				.getSubject();
 
