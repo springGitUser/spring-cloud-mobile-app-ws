@@ -27,7 +27,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		http.authorizeRequests().antMatchers("/users/**").hasIpAddress(env.getProperty("zuul.gateway.ip")).and()
+		
+		http.authorizeRequests().
+//		antMatchers("/users/**").permitAll().and()
+		antMatchers("/users/**").hasIpAddress(env.getProperty("zuul.gateway.ip")).and()
 				.addFilter(getAuthenticationFilter());
 		http.headers().frameOptions().disable();
 	}

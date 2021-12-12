@@ -22,6 +22,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests().antMatchers(env.getProperty("user.ws.login.uri")).permitAll()
 				.antMatchers(env.getProperty("user.ws.registration.uri")).permitAll()
+				.antMatchers(env.getProperty("zuul.actuator.url.path")).permitAll()
+				.antMatchers(env.getProperty("user.ws.actuator.uri")).permitAll()				
 				.antMatchers(env.getProperty("user.ws.h2console.uri")).permitAll().anyRequest().authenticated()
 				.and().addFilter(new AuthorizationFilter(authenticationManager(), env));
 
