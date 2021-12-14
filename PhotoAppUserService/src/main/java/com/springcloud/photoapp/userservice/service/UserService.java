@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
@@ -40,6 +42,8 @@ public class UserService implements UserDetailsService {
 	@Autowired
 	private AlbumServiceFeignClient feignClient;
 	
+	Logger logger=LoggerFactory.getLogger(this.getClass());
+
 	public UserEntity createUser(UserRequestDTO userDTO) {
 		ModelMapper mp = new ModelMapper();
 		mp.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
@@ -83,7 +87,9 @@ public class UserService implements UserDetailsService {
 		 * })
 		 * List<AlbumResponseModel>  = albumResponseList.getBody();
 		 */
+		logger.info("Before Making AlbumApi Request.....");
 		List<AlbumResponseModel> albumLst= feignClient.userAlbums(userId);
+		logger.info("After Making AlbumApi Request.....");
 		userAlbumDto.setAlbums(albumLst);
 		return userAlbumDto;
 	}

@@ -37,6 +37,6 @@ public class PhotoAppUserServiceApplication {
 	
 	@Bean
 	public Logger.Level feignLoggerLover(){
-		return Logger.Level.BASIC;
+		return Logger.Level.FULL;
 	}
 }
